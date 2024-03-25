@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="icon" href="/img/carbon-footprint.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <aside class="sidenav">
+        <h2>3pmetrics</h2>
+        <img id="footprint-icon" src="/img/carbon-footprint.png" height="100" width="100">
+        <div class="items">
+            <a href="#"><img src="/img/icons8-dashboard-48.png" height="35" width="35">Dashboard</a>
+            <a href="#"><img src="/img/icons8-category-50.png" height="35" width="35">Categories</a>
+            <a href="#"><img src="/img/icons8-business-group-100.png" height="40" width="40">Companies</a>
+            <a href="#"><img src="/img/icons8-report-50.png" height="35" width="35">Reports</a>
+        </div>
+    </aside>
+
+    <div class="main">
+        <h3>Carbon Footprint Data Entry</h3>
+        <button id="icon1" type="submit"><img src="/img/notification.png" alt="notification" height="30"
+                width="30"></button>
+        <button id="icon2" type="submit"><img src="/img/icons8-message-24.png" alt="message" height="30"
+                width="30"></button>
+        <button id="icon3" type="submit"><img src="/img/icons8-user-32.png" alt="user" height="30" width="30"></button>
+
+        <div class="data-container">
+            <form class="data-entry" onsubmit="return collectAndDisplayData()">
+                <h3>Data Entry</h3>
+                <fieldset><label for="company-name">Company Name</label><input id="company-name" type="text"
+                        name="company-name">
+                </fieldset>
+                <fieldset>
+                    <label for="">Reporting Period</label><br>
+                    <hr>
+                    <label for="reporting">Start</label><input type="date" name="reporting" id="reporting-start"><br>
+                    <label for="reporting">Finish</label><input type="date" name="reporting" id="reporting-finish">
+                </fieldset>
+                <fieldset>
+                    <label for="location">Location</label><input type="text" name="location" id="location"><br>
+                </fieldset>
+                <fieldset>
+                    <label for="emission-point">Emission Occurrence Point:</label>
+                    <input list="mainList2" id="inputMain2" name="emission-point" placeholder="Choose a select"
+                        onInput="updateSubOptions2()">
+                    <datalist id="mainList2">
+                        <option value="Fixed Sources">
+                        <option value="Moving Sources">
+                        <option value="Dispersed Resources">
+                    </datalist>
+
+                    <input list="subList2" id="inputSub2" name="emission-point" placeholder="Choose a factor">
+                    <datalist id="subList2">
+                    </datalist>
+
+                </fieldset>
+                <fieldset>
+                    <label for="emission-sources">Emission Sources:</label>
+                    <input list="mainList" id="inputMain" name="emission-sources" placeholder="Choose a sector"
+                        onInput="updateSubOptions()">
+                    <datalist id="mainList">
+                        <option value="Energy Production and Transformation">
+                        <option value="Transportation">
+                        <option value="Industry">
+                        <option value="Agriculture">
+                        <option value="Waste Management">
+                    </datalist>
+
+                    <input list="subList" id="inputSub" name="subOption" placeholder="Choose a factor">
+                    <datalist id="subList">
+
+                    </datalist>
+
+                    <label for="units" id="units-label">Unit</label><input id="units" type="text" name="units"
+                        id="units" placeholder="Select unit" list="Units" autocomplete="off">
+                    <datalist id="Units">
+                        <option bold>Liter(L)</option>
+                        <option bold>Cubic Meters(m3)</option>
+                        <option bold>Tone(t)</option>
+                        <option bold>Kilotone(kt)</option>
+                        <option bold>Megatone(Mt)</option>
+                        <option bold>Grams(g)</option>
+                        <option bold>Miligrams(mg)</option>
+                        <option bold>Micrograms(µg)</option>
+                    </datalist>
+                </fieldset>
+                <button id="entry-button" type="submit">Entry</button>
+            </form>
+
+            <div class="data-display">
+                <h3>Emission Details</h3>
+                <fieldset>
+                    <h4>Company Name:</h4>
+                    <p></p>
+                </fieldset>
+                <fieldset>
+                    <h4>Reporting Start:</h4>
+                    <p></p>
+                </fieldset>
+                <fieldset>
+                    <h4>Reporting Finish:</h4>
+                    <p></p>
+                </fieldset>
+                <fieldset>
+                    <h4>Location:</h4>
+                    <p></p>
+                </fieldset>
+                <fieldset>
+                    <h4>Emission Sources:</h4>
+                    <p></p>
+                    <p></p><br><br>
+                    <h4>Unit:</h4>
+                    <p></p>
+                </fieldset>
+                <fieldset>
+                    <h4>Emission Occurrence Point:</h4>
+                    <p></p>
+                    <p></p>
+                </fieldset>
+                <button class="data-display-button" type="reset">Update</button>
+                <button class="data-display-button" type="submit">Save
+                </button>
+                <section id="informiting">
+                    <h5>Informiting</h5>
+                    <i>You can display these data in the Companies tab.</i>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/src/app.js"></script>
+
+</html>
